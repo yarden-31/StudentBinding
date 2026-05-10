@@ -1,0 +1,112 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="StudentBinding.ControlBindingPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+
+    <ScrollView>
+
+        <VerticalStackLayout Margin="15">
+            <!--  הטקסט והתמונה  -->
+            <VerticalStackLayout
+                Margin="15,50"
+                BindingContext="{Binding Source={x:Reference scaleSlider}}"
+                HorizontalOptions="Center"
+                VerticalOptions="Center">
+
+
+                <Label
+                    FontSize="Large"
+                    HorizontalOptions="Center"
+                    Rotation="{Binding Source={x:Reference rotationSlider}, Path=Value}"
+                    Scale="{Binding Value}"
+                    Text="קשה יש רק בלחם"
+                    VerticalOptions="Center" />
+
+                <Image
+                    x:Name="botImg"
+                    Aspect="AspectFit"
+                    HeightRequest="{OnPlatform WinUI=300}"
+                    Opacity="{Binding Value, Source={x:Reference opacitySlider}, Mode=TwoWay}"
+                    Source="dotnet_bot.png"
+                    WidthRequest="{OnPlatform WinUI=300}" />
+
+
+            </VerticalStackLayout>
+            <!--  Grid 3*2 first column is name second is the slider  -->
+            <Grid ColumnDefinitions="*,4*" RowDefinitions="*,*,*">
+                <!--  Scale Slider  -->
+                <Label
+                    FontSize="20"
+                    HorizontalTextAlignment="Center"
+                    Text="הגדלה" />
+                <Slider
+                    x:Name="scaleSlider"
+                    Grid.Column="1"
+                    Maximum="5"
+                    MaximumTrackColor="#F01616"
+                    Minimum="0"
+                    MinimumTrackColor="#78EE10"
+                    Value="0" />
+                <Label
+                    Grid.Column="1"
+                    Margin="0,15,0,0"
+                    Padding="10"
+                    BindingContext="{Binding Source={x:Reference scaleSlider}}"
+                    HorizontalTextAlignment="Center"
+                    Text="{Binding Value, StringFormat='{0:F1}'}" />
+
+
+                <!--  Rotation Slider  -->
+                <Label
+                    Grid.Row="1"
+                    FontSize="20"
+                    HorizontalTextAlignment="Center"
+                    Text="סיבוב" />
+                <Slider
+                    x:Name="rotationSlider"
+                    Grid.Row="1"
+                    Grid.Column="1"
+                    Maximum="360"
+                    Minimum="0"
+                    ThumbColor="Red"
+                    ThumbImageSource="slider.png"
+                    Value="1" />
+                <Label
+                    Grid.Row="1"
+                    Grid.Column="1"
+                    Margin="0,15,0,0"
+                    Padding="10"
+                    HorizontalTextAlignment="Center"
+                    Text="{Binding Source={x:Reference rotationSlider}, Path=Value, StringFormat='{0:F0}'}" />
+
+                <!--  Opacity Slider  -->
+                <Label
+                    Grid.Row="2"
+                    FontSize="20"
+                    HorizontalTextAlignment="Center"
+                    Text="שקיפות" />
+                <Slider
+                    x:Name="opacitySlider"
+                    Grid.Row="2"
+                    Grid.Column="1"
+                    Maximum="1"
+                    Minimum="0"
+                    Value="1" />
+                <Label
+                    Grid.Row="2"
+                    Grid.Column="1"
+                    Margin="0,15,0,0"
+                    Padding="10"
+                    HorizontalTextAlignment="Center"
+                    Text="{Binding Value, Source={x:Reference opacitySlider}, StringFormat='{0:0.#%}'}" />
+
+            </Grid>
+
+            <Button
+                Clicked="OpacityChangeOnClick"
+                Text="שנה שקיפות"
+                WidthRequest="{OnIdiom Tablet=300}" />
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
