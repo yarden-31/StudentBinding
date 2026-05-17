@@ -1,4 +1,5 @@
 ﻿using StudentBinding.Models;
+using System.Threading.Tasks;
 
 namespace StudentBinding
 {
@@ -53,13 +54,22 @@ namespace StudentBinding
             this.BindingContext = this;
         }
 
-        private void OnClickedChangedButton(object sender, EventArgs e)
+        public void OnChangeStudent(object sender, EventArgs e)
         {
-            if (DisplayedStudent == StudentNumber0) { DisplayedStudent = StudentNumber1; }
+            System.Diagnostics.Debug.WriteLine("Button Clicked!");
 
-            if (DisplayedStudent == StudentNumber1) { DisplayedStudent = StudentNumber2; }
-
-            if (DisplayedStudent == StudentNumber2) { DisplayedStudent = StudentNumber0; }
+            if (DisplayedStudent == StudentNumber0) 
+            { 
+                DisplayedStudent = StudentNumber1; 
+            }
+            else if (DisplayedStudent == StudentNumber1) 
+            { 
+                DisplayedStudent = StudentNumber2; 
+            }
+            else if (DisplayedStudent == StudentNumber2) 
+            { 
+                DisplayedStudent = StudentNumber0; 
+            }
         }
     }
 }

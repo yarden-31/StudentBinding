@@ -61,7 +61,7 @@
                 TextColor="MidnightBlue" />
 
             <Button Text="Click here to change student"
-                    Clicked="OnClickedChangedButton"/>
+                    Clicked="OnChangeStudent"/>
 
         </VerticalStackLayout>
     </ScrollView>
