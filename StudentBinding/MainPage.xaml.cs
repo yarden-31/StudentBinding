@@ -34,7 +34,7 @@ namespace StudentBinding
             StudentNumber0.EmailAddress = "joe@gmail.com";
             StudentNumber0.PhoneNumber = "050-1234567";
 
-            StudentNumber1.ProfilePicture = "Bob The Minion.png";
+            StudentNumber1.ProfilePicture = "BobTheMinion.png";
             StudentNumber1.FullName = "Bob The Minion";
             StudentNumber1.Birthday = new DateTime(2010, 7, 9);
             StudentNumber1.Age = 12;
@@ -47,6 +47,10 @@ namespace StudentBinding
             StudentNumber2.Age = 15;
             StudentNumber2.EmailAddress = "AgnesTheBest@Gmail.com";
             StudentNumber2.PhoneNumber = "098-765-4321";
+
+            DisplayedStudent = StudentNumber0;
+
+            this.BindingContext = this;
         }
 
         private void OnClickedChangeButton(object sender, EventArgs e)
@@ -55,7 +59,7 @@ namespace StudentBinding
 
             if (DisplayedStudent == StudentNumber1) { DisplayedStudent = StudentNumber2; }
 
-            else { DisplayedStudent = StudentNumber1; }
+            if (DisplayedStudent == StudentNumber2) { DisplayedStudent = StudentNumber0; }
         }
     }
 }
