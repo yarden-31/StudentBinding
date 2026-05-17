@@ -28,7 +28,7 @@ namespace StudentBinding
             StudentNumber2 = new Student();
 
             StudentNumber0.ProfilePicture = "dotnet_bot.png";
-            StudentNumber0.FullName = "ישראל ישראלי";
+            StudentNumber0.FullName = "ישראל חיים";
             StudentNumber0.Birthday = new DateTime(2000, 1, 1);
             StudentNumber0.Age = 26;
             StudentNumber0.EmailAddress = "joe@gmail.com";
@@ -53,7 +53,7 @@ namespace StudentBinding
             this.BindingContext = this;
         }
 
-        private void OnClickedChangeButton(object sender, EventArgs e)
+        private void OnClickedChangedButton(object sender, EventArgs e)
         {
             if (DisplayedStudent == StudentNumber0) { DisplayedStudent = StudentNumber1; }
 

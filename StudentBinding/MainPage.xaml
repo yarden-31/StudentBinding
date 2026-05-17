@@ -60,8 +60,8 @@
                 Text="{Binding DisplayedStudent.PhoneNumber}"
                 TextColor="MidnightBlue" />
 
-            <Button Text="Click here to change to a different student"
-                    Clicked="OnClickedChangeButton"/>
+            <Button Text="Click here to change student"
+                    Clicked="OnClickedChangedButton"/>
 
         </VerticalStackLayout>
     </ScrollView>
