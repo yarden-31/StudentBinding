@@ -8,7 +8,7 @@
         <VerticalStackLayout Padding="30,0" Spacing="25">
 
             <!--  תמונת פרופיל  -->
-            <Image
+            <Image 
                 Aspect="AspectFit"
                 HeightRequest="185"
                 SemanticProperties.Description="Student profile image"
